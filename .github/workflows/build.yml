@@ -41,7 +41,12 @@ jobs:
         uses: SonarSource/sonarqube-scan-action@v4.2.2
         env:
           SONAR_TOKEN: ${{secrets.TOKEN_GITHUB}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          projectBaseDir: ''
+          projectBaseDir: ${{ github.workspace }}
+          sonar.projectKey: ${{ secrets.SONAR_KEY }}
+          sonar.organization: ${{ secrets.ORGANIZATION_SONAR_CLOUD }}
+          
+          
           
           
