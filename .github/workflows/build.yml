@@ -43,9 +43,12 @@ jobs:
           SONAR_TOKEN: ${{secrets.TOKEN_GITHUB}}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          projectBaseDir: ${{ github.workspace }}
-          projectKey: ${{ secrets.SONAR_KEY }}
-          organization: ${{ secrets.ORGANIZATION_SONAR_CLOUD }}
+          args: >
+            -Dsonar.projectName=${{ github.workspace }}
+            -Dsonar.projectKey=${{ secrets.SONAR_KEY }}
+            -Dsonar.organization=${{ secrets.ORGANIZATION_SONAR_CLOUD }}
+          
+
           
           
           
